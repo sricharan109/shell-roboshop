@@ -8,7 +8,7 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-mkdir -P $LOGS_FOLDER
+mkdir -p $LOGS_FOLDER
 
 VALIDATE(){
     if [ $1 -ne  0 ]; then 
@@ -16,9 +16,10 @@ VALIDATE(){
        exit 1
     else
         echo "$2 .... SUCCESS"
+    fi
 }
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGS_FILE
 VALIDATE $? "Copying mongodb repo"
 
 dnf install mongod-org -y &>>$LOGS_FILE
@@ -33,5 +34,5 @@ VALIDATE $? "starting mongodb"
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 VALIDATE $? "Allowing remote connections"
 
-systmctl restart mongodb
+systmctl restart mongodb &>>$LOGS_FILE
 VALIDATE $? "Restarting MongoDB"
