@@ -1,13 +1,13 @@
 AMI="ami-0220d79f3f480ecf5"
 SG="sg-002d60d879152f4bf"
 DOMAIN_NAME="cerry.in"
-
+ZONE_ID="Z05203071NMLAKLI7E4S1"
 for instance in $@
 do
     INSTANCE_ID=$( aws ec2 run-instances \
-    --image-id $AMI_ID \
+    --image-id $AMI \
     --instance-type "t3.micro" \
-    --security-group-ids $SG_ID \
+    --security-group-ids $SG \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" \
     --query 'Instances[0].InstanceId' \
     --output text )
