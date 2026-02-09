@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 FOLDER="/var/log/shell-roboshop"
-FILE="$LOGS_FOLDER/$0.log"
+FILE="$FOLDER/$0.log"
 SCRIPT_DIR=$PWD
 MONGODB_HOST=mongodb.cerry.in
 
@@ -15,10 +15,11 @@ mkdir -p $FOLDER
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$2 ...  FAILURE" &>> $FILE
+        echo -e "$2 ...  FAILURE" &>>$FILE
         exit 1
     else
-        echo -e "$2 ...  SUCCESS" &>> $FILE
+        echo -e "$2 ...  SUCCESS" &>>$FILE
+    fi
 }
 
 dnf module disable nodejs -y &>>$FILE
