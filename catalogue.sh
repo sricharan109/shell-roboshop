@@ -5,7 +5,7 @@ FILE="$FOLDER/$0.log"
 SCRIPT_DIR=$PWD
 MONGODB_HOST="mongodb.cerry.in"
 
-if [ $USER_ID -ne 0]; then 
+if [ $USER_ID -ne 0 ]; then 
     echo "run the file with root access"
     exit 1
 fi
@@ -13,7 +13,7 @@ fi
 mkdir -p $FOLDER
 
 VALIDATE(){
-    if [ $1 -ne 0]; then
+    if [ $1 -ne 0 ]; then
         echo "$2 ......FAILED"
         exit 1
     else
