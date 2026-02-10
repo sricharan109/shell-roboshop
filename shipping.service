@@ -5,7 +5,7 @@ Description=Shipping Service
 User=roboshop
 // highlight-start
 Environment=CART_ENDPOINT=cart.cerry.in:8080
-Environment=DB_HOST=mysql.dcerry.in
+Environment=DB_HOST=mysql.cerry.in
 // highlight-end
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
