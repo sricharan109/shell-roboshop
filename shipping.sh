@@ -4,6 +4,8 @@ ID=$(id -u)
 FOLDER="/var/log/shell-roboshop"
 FILE="$FOLDER/$0.log"
 DIR=$(pwd)
+MYSQL_HOST=mysql.cerry.in
+
 
 if [ $ID -ne 0 ]; then
     echo "run this command with root user"
