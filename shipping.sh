@@ -1,7 +1,8 @@
+#!/bin/bash
 ID= $(id -u)
 FOLDER="/var/log/shell-roboshop"
 FILE=/$FOLDER/$0.log
-DIR=$(pwd)
+DIR=$pwd
 if [ $ID -ne 0]; then
     echo "run this command with root user"
     exit 1 
@@ -10,7 +11,7 @@ else
 fi
 mkdir -p $FOLDER
 VALIDATE(){
-    if [ $1 -nq 0 ] then 
+    if [ $1 -nq 0 ]; then 
         echo "$2 .....FAILED"
     else
         echo "$2 ....SUCCESS"
